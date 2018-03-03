@@ -1,13 +1,10 @@
+<!-- Example use of layouts/regionedit.template ->
+
 <h2>
 	<perch:content id="alineakop" type="text" label="Alinea Kop" required="true" title="true" />
-	<perch:if exists="alineakopklein">
-		<small>
-			<perch:content id="alineakopklein" type="text" label="Alinea Kop Klein" />
-		</small>	
-	</perch:if>	
 </h2>
 
-<perch:template path="layouts/region_editor.php" />
+<perch:template path="layouts/regionedit.template" />
 
 <perch:if exists="alineaimage">
 	<img class="foto" src="<perch:content id="alineaimage" type="image" label="Foto" />" 

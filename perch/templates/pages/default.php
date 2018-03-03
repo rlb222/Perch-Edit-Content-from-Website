@@ -1,34 +1,26 @@
 <?php if (!defined('PERCH_RUNWAY')) include($_SERVER['DOCUMENT_ROOT'].'/perch/runtime.php'); ?>
 
-<?php 
-setlocale (LC_TIME, "Dutch");
+<!-- This is an example of a Master page --> 
 
+<!-- You can insert regionedit.script into a Master Page -->
+<!-- or you can insert the line into every *.php page on the root of your site if you don't use Master Pages -->
+
+<?php 
 perch_content_create('Pagina Titel', array(
 	'template' => 'grotekop.html',
 	'multiple' => false,
 	'edit-mode' => 'listdetail'
 )); 
-
-perch_content_create('Alinea', array(
-	'template' => 'alinea.html',
-	'multiple' => true,
-	'edit-mode' => 'singlepage'
-)); 
-
-perch_content_create('Workshop', array(
-	'template' => 'workshop.html',
-	'multiple' => true,
-	'edit-mode' => 'singlepage'
-)); 
-
 ?>
-
 
 
 <!doctype html>
 <html lang="en">
 <?php perch_layout('cdr.head'); ?>
+
 <?php perch_get_javascript(); ?>  
+
+<!-- This is the line you insert for RegionEdit -->
 <?php perch_layout('regionedit.script'); ?>
 
 
@@ -42,8 +34,6 @@ perch_content_create('Workshop', array(
 
 	<section>
 		<?php perch_content('Pagina Titel'); ?>
-		<?php perch_content('Alinea');?>
-		<?php perch_content('Workshop');?>
 	</section>
 
 	<?php perch_layout('cdr.footer'); ?>
