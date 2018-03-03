@@ -3,7 +3,7 @@
 This Solution for [Perch CMS](http://grabaperch.com) makes it possible for administrators to go to the editpage for a region directly from the frontpages of the website. 
 You go to the page you want to modify, you type Shift+Alt+E to show the editable parts on the page. Click one of the revealed edit-icons to go directly to the region-edit page. 
 
-###Ctrl-E Enhanced
+### Ctrl-E Enhanced
 With standard Perch CMS you can add the functionality to edit pages from the front-end by pressing Ctrl-E. You have to click to the right region-type and then to the correct region to edit it.
 
 This solution makes it possible to edit the region content directly from the front-page. In the same way Ctrl-E works to edit the page screen.    
