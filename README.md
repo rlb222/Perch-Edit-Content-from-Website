@@ -15,9 +15,10 @@ This solution makes it possible to edit the region content directly from the fro
 2. Add an edit image to your site images (img/pen.png)   
 3. Copy the template 'regionedit.template.php' to perch/templates/layouts/
 4. Copy the template 'regionedit.script.php' to perch/templates/layouts/
-5. Include a javascript snippet into every page you want to make editable (or in your referenced master pages) with `<perch:template path="layouts/regionedit.script" />` 
+5. Include a javascript snippet into every page you want to make editable (or in your referenced master pages) with 
+`<?php perch_layout('regionedit.script'); ?>`
 6. Insert an extra line into every template (=region) you want to make editable (in 'perch/templates/content') 
-`<perch:template path="layouts/regionedit.template" />`
+`<perch:template path="layouts/regionedit.template.php" />`
 
 
 ### How it works
