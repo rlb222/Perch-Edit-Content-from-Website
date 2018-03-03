@@ -1,0 +1,85 @@
+<perch:form id="aanmelding-workshop" method="post" app="perch_forms" class="aanmelding">
+
+	<div class="workshop-naam">
+		<p>
+			<perch:content id="WorkshopNaam" type="text" label="Workshopnaam" />
+			<perch:content id="WorkshopDatum" type="text" label="WorkshopDatum" />
+		</p>
+	</div>
+
+
+	<div>
+	    <perch:label for="voornaam">Voornaam</perch:label>
+	    <perch:input type="text" id="voornaam" required="true" label="voornaam" />
+	    <span class="form-error"><perch:error for="voornaam" type="required">Vul aub je voornaam in</perch:error></span>
+	</div>
+	<div>
+	    <perch:label for="achternaam">Achternaam</perch:label>
+	    <perch:input type="text" id="achternaam" required="true" label="achternaam" />
+	    <span class="form-error"><perch:error for="achternaam" type="required">Vul aub je achternaam in</perch:error></span>
+	</div>
+
+	<div class="geslacht"> 
+	    <perch:label class="mainlabel" for="geslacht">Man/Vrouw</perch:label>
+		<perch:input type="radio" id="geslacht" name="geslacht" options="Man,Vrouw" />
+	</div>
+
+
+	<div>
+	    <perch:label for="gebdatum">Geboortedatum</perch:label>
+	    <perch:input type="text" id="gebdatum" required="true" label="gebdatum" placeholder="21 jan 1974" />
+	    <span class="form-error"><perch:error for="gebdatum" type="format">Vul aub je geboortedatum in</perch:error></span>
+	</div>
+
+
+
+	<div>
+	    <perch:label for="straat">Straat en Huisnr</perch:label>
+	    <perch:input type="text" id="straat" required="true" label="straatnaam" />
+	    <span class="form-error"><perch:error for="straat" type="required">Vul aub je straatnaam en huisnr in</perch:error></span>
+
+	</div>
+
+
+	<div>
+	    <perch:label for="postcode">Postcode</perch:label>
+	    <perch:input type="text" id="postcode" required="true" label="postcode" />
+	    <span class="form-error"><perch:error for="postcode" type="required">Vul aub je postcode in</perch:error></span>
+	</div>
+
+	<div>
+	    <perch:label for="plaats">Plaatsnaam</perch:label>
+	    <perch:input type="text" id="plaats" required="true" label="plaats" />
+	    <span class="form-error"><perch:error for="plaats" type="required">Vul aub je plaatsnaam in</perch:error></span>
+	</div>
+
+	<div>
+	    <perch:label for="telnr">Telefoonnummer</perch:label>
+	    <perch:input type="text" id="telnr" required="true" label="telnr" />
+	    <span class="form-error"><perch:error for="telnr" type="required">Vul aub je telefoonnummer in</perch:error></span>
+	</div>
+
+    <div>
+        <perch:label for="email">Email</perch:label>
+        <perch:input type="email" id="email" required="true" label="Email" placeholder="email@provider.nl" />
+        <span class="form-error"><perch:error for="email" type="required">Vul je email adres in</perch:error></span>
+        <span class="form-error"><perch:error for="email" type="format">Controleer of je emailadres juist is geschreven</perch:error></span>
+    </div>
+
+
+    <div class="bericht">
+        <perch:label for="bericht">Opmerkingen</perch:label>
+        <perch:input type="textarea" id="bericht" size="l" required="false" label="Bericht" />
+    </div>
+
+    <div>
+        <perch:input class="button" type="submit" id="submit" value="Opsturen aanmelding" />
+	</div>
+	
+
+
+    <perch:success>
+        <perch:content id="success" type="textarea" label="Thank you message" textile="true" editor="markitup" />
+    </perch:success>
+
+</perch:form>

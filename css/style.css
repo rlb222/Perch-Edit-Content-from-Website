@@ -1,0 +1,25 @@
+/* Style snippet for Region_Editor */
+
+/* Edit this snippet to alter the way the edit-icon is displayed on your front-end pages */ 
+/* It requires an edit image in /img/ */
+
+span.region_editor { 
+  position: relative;
+  top: -41px;
+  left: -39px;
+  margin-bottom: -30px;
+  background-image: url('../img/pen.png'); /* The edit image */
+  background-size: 30px 30px;
+  background-repeat: no-repeat;
+  height: 30px;
+  width: 30px;
+  display: block;
+}
+
+span.region_editor.hide_this {
+  display: none;
+}
+
+span.region_editor:hover {
+  cursor: pointer;
+}

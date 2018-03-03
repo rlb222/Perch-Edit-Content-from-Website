@@ -1,0 +1,17 @@
+<h2>
+	<perch:content id="alineakop" type="text" label="Alinea Kop" required="true" title="true" />
+	<perch:if exists="alineakopklein">
+		<small>
+			<perch:content id="alineakopklein" type="text" label="Alinea Kop Klein" />
+		</small>	
+	</perch:if>	
+</h2>
+
+<perch:template path="layouts/region_editor.php" />
+
+<perch:if exists="alineaimage">
+	<img class="foto" src="<perch:content id="alineaimage" type="image" label="Foto" />" 
+	alt="<perch:content id="FotoOms" type="text" label="Foto Omschrijving" />" />
+</perch:if>
+	
+<perch:content id="alineatekst" type="textarea" size="m" markdown="true" label="Alinea Tekst" required="true"/>

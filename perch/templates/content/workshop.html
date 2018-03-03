@@ -1,0 +1,35 @@
+<h2>
+	<perch:content id="alineakop" type="text" label="Alinea Kop" required="true" title="true" />
+	<perch:if exists="alineakopklein">
+		<small>
+			<perch:content id="alineakopklein" type="text" label="Alinea Kop Klein" />
+		</small>	
+	</perch:if>	
+</h2>
+
+<perch:template path="layouts/region_editor.php" />
+
+<perch:if exists="alineaimage">
+	<img class="foto" src="<perch:content id="alineaimage" type="image" label="Foto" />" 
+	alt="<perch:content id="FotoOms" type="text" label="Foto Omschrijving" />" />
+</perch:if>
+	
+<perch:content id="alineatekst" type="textarea" size="m" markdown="true" label="Alinea Tekst" required="true"/>
+
+<perch:if exists="meer_info_url">
+	<a class="meer-info" href="<perch:content type="pagelist" id="meer_info_url" label="Meer info pagina" />">Meer informatie...</a>
+</perch:if>	
+
+
+<perch:repeater id="workshop_data" label="Workshop Data">
+	<ul class="workshop-data">
+		<li class="kop"><perch:content id="soort_workshop" type="select" label="Soort"
+			options="Workshop, Reis|Reis gegevens, iets anders" allowempty="false" required="true" /></li>	
+		<li>Datum: 	<perch:content type="date" format="%a %#d %b '%y" id="datum" label="Datum" /> tot 
+					<perch:content type="date" format="%a %#d %b '%y"id="einddatum" label="Einddatum" /></li>
+
+		<li>Bijdrage: <perch:content type="text" id="bijdrage" label="Bijdrage" /></li>
+		<li>Locatie:  <perch:content type="text" id="locatie" label="Locatie" /></li>
+		<li><a href="<perch:content type="pagelist" id="aanmeld_url" label="Aanmeld pagina" />">Aanmelden</a></li>
+	</ul>
+</perch:repeater>
