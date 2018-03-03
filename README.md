@@ -124,5 +124,5 @@ span.region_editor:hover {
 
 
 ### Screenshot of the appearing edit-icons 
-next to the region titles
+Shift-Alt-E toggles the edit buttons next to the region titles.
 ![Screenshots Region Edit icons](/Screenshot_EditMode.png?raw=true "Shift-Alt-E shows the region edit buttons")
