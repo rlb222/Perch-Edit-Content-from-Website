@@ -121,3 +121,8 @@ span.region_editor:hover {
   cursor: pointer;
 }
 ~~~
+
+
+### Screenshot of the appearing edit-icons 
+next to the region titles
+![Screenshots Region Edit icons](/Screenshot_EditMode.png?raw=true "Shift-Alt-E shows the region edit buttons")
