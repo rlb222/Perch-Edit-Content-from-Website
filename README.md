@@ -1,7 +1,7 @@
 # Perch Edit Regions from Frontend (RegionEdit)   
 
 This Solution for [Perch CMS](http://grabaperch.com) makes it possible for administrators to go to the editpage for a region directly from the frontpages of the website. 
-You go to the page you want to modify, you type Shift-Alt-E to show the editable parts on the page. Click one of the revealed edit-icons to go directly to the region-edit page. 
+You go to the page you want to modify, you type Shift-Alt-E to show the editable parts on the page. Click one of the revealed edit-buttons to go directly to the region-edit page. 
 
 ### The basis of this method
 a.  
@@ -13,7 +13,7 @@ From within a template you have the regionID and the itemID with the commands:
 `<perch:content id="regionID" type="hidden" />` and `<perch:content id="itemID" type="hidden" />`
   
   
-In the template for a region you can add an editlink, just like in the Perch Ctrl-E code:
+In the template for a region you can add an edit link or button, just like in the Perch Ctrl-E code:
 ~~~
 <span class="region_editor hide_this" 
 	  onclick="var cms_path='/perch/core/apps/content/edit/?id=<perch:content id="regionID" type="hidden" />&itm=<perch:content id="itemID" type="hidden" />';window.open(cms_path, 'cmsedit');">
@@ -21,9 +21,9 @@ In the template for a region you can add an editlink, just like in the Perch Ctr
 ~~~  
   
 c.
-You don't want to show these links to your normal website-visitor. Only to an administrator or editor.
+You don't want to show these edit-buttons to your normal website-visitor. Only to an administrator or editor.
 So I've hidden them behind the key command Shift-Alt-E, the same way Ctrl-E works now.
-Shift-Alt-E will unhide these links.
+Shift-Alt-E will toggle these edit-buttons.
 
 
 ### Current Ctrl-E in Perch
@@ -48,9 +48,16 @@ This region-edit solution makes it possible to directly edit the region content 
 A bit [like Ctrl-E in the docs](https://docs.grabaperch.com/video/v/perch-editing-shortcuts/), but here the keycombination shows edit-icons next to regions. Clicking these will open the region edit-page.
 
 In every region you made editable (see install 6.) there now is a hidden link to the editpage of this region (via regionID and itemID, see code).
-The javascript snippet (4. and 5.) wil look for the keypress Shift-Alt-E. If the user presses Shift-Alt-E, the CSS class will show an edit icon (2.) beside regions (from 1.) on the frontend page. 
+The javascript snippet (4. and 5.) wil look for the keypress Shift-Alt-E. If the user presses Shift-Alt-E, the CSS class will show an edit-button (2.) beside regions (from 1.) on the frontend page. 
 The user can now click on the edit icon and the Perch page 'edit region' will be opened.   
 If the user is not logged in, the loginpage is shown first. 
+
+
+### How it looks on the web pages
+You can change how the edit-button looks in two ways:
+1. Select the place in the region template where you put the edit-button link (see install 6.)
+2. Edit the CSS to change the place on screen or the appearance of the edit-button (As in install 1.)
+
 
 ### TODO   
 - Make a cleaner install, if you have suggestions, please let me know.
