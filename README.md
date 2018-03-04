@@ -45,7 +45,7 @@ This region-edit solution makes it possible to directly edit the region content 
 
 
 ### How it works
-Just [like Ctrl-E in the docs](https://docs.grabaperch.com/video/v/perch-editing-shortcuts/), only the keycombination shows edit-icons next to regions. Clicking these will open the region edit-page.
+A bit [like Ctrl-E in the docs](https://docs.grabaperch.com/video/v/perch-editing-shortcuts/), but here the keycombination shows edit-icons next to regions. Clicking these will open the region edit-page.
 
 In every region you made editable (see install 6.) there now is a hidden link to the editpage of this region (via regionID and itemID, see code).
 The javascript snippet (4. and 5.) wil look for the keypress Shift-Alt-E. If the user presses Shift-Alt-E, the CSS class will show an edit icon (2.) beside regions (from 1.) on the frontend page. 
