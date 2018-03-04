@@ -59,7 +59,7 @@ You can change how the edit-button looks in two ways:
 2. Edit the CSS to change the place on screen or the appearance of the edit-button (As in install 1.)
 
 
-### TODO   
+### Todo   
 - Make a cleaner install, if you have suggestions, please let me know.
 - Test it with blocks. Its tested for regions (including a repeater)
 - pen.png is a bit too big in bytes
