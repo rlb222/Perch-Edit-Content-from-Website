@@ -1,18 +1,41 @@
 # Perch Edit Regions from Frontend (RegionEdit)   
 
 This Solution for [Perch CMS](http://grabaperch.com) makes it possible for administrators to go to the editpage for a region directly from the frontpages of the website. 
-You go to the page you want to modify, you type Shift+Alt+E to show the editable parts on the page. Click one of the revealed edit-icons to go directly to the region-edit page. 
+You go to the page you want to modify, you type Shift-Alt-E to show the editable parts on the page. Click one of the revealed edit-icons to go directly to the region-edit page. 
 
-### Ctrl-E Enhanced
-With standard Perch CMS you can add the functionality to edit pages from the front-end by pressing Ctrl-E. You have to click to the right region-type and then to the correct region to edit it.
+### The basis of this method
+a.  
+It's possible to go directly to edit a region in Perch. The direct url to edit a region is   
+`www.mydomain.com/perch/core/apps/content/edit/?id=regionID&itm=itemID`
 
-This solution makes it possible to edit the region content directly from the front-page. In the same way Ctrl-E works to edit the page screen.    
+b.  
+From within a template you have the regionID and the itemID with the commands:  
+`<perch:content id="regionID" type="hidden" />` and `<perch:content id="itemID" type="hidden" />`
+  
+  
+In the template for a region you can add an editlink, just like in the Perch Ctrl-E code:
+~~~
+<span class="region_editor hide_this" 
+	  onclick="var cms_path='/perch/core/apps/content/edit/?id=<perch:content id="regionID" type="hidden" />&itm=<perch:content id="itemID" type="hidden" />';window.open(cms_path, 'cmsedit');">
+</span>
+~~~  
+  
+c.
+You don't want to show these links to your normal website-visitor. Only to an administrator or editor.
+So I've hidden them behind the key command Shift-Alt-E, the same way Ctrl-E works now.
+Shift-Alt-E will unhide these links.
 
 
+### Current Ctrl-E in Perch
+With standard Perch CMS you can [add the functionality](https://docs.grabaperch.com/video/v/perch-editing-shortcuts/) to edit pages with Ctrl-E. You have to click to the right region-type and then to the correct region to edit it.  
+This region-edit solution makes it possible to directly edit the region content from the front-page.
+  
+  
 
-### How to install - overview
-1. Include some CSS into your front-end CSS (css/style.css) 
-2. Add an edit image to your site images (img/pen.png)   
+### How to install
+0. Download the repository, it contains a Perch-like folder structure
+1. Include the CSS (from css/style.css) into your front-end CSS (for the showing and hiding of edit buttons)
+2. Add the edit-image to your front-end images (img/pen.png)   
 3. Copy the template 'regionedit.template.php' to perch/templates/layouts/
 4. Copy the template 'regionedit.script.php' to perch/templates/layouts/
 5. Include a javascript snippet into every page you want to make editable (or in your referenced master pages) with 
@@ -22,20 +45,22 @@ This solution makes it possible to edit the region content directly from the fro
 
 
 ### How it works
-Just [like Ctrl-E in the docs](https://docs.grabaperch.com/video/v/perch-editing-shortcuts/), but with an extra step: the keycombination will show some edit-icons, pressing these icons will lead to the correct region-edit page.
+Just [like Ctrl-E in the docs](https://docs.grabaperch.com/video/v/perch-editing-shortcuts/), only the keycombination shows edit-icons next to regions. Clicking these will open the region edit-page.
 
-In every region you made editable (with 6.) there now is a hidden link to the editpage of this region (via regionID and itemID, see code).
-The javascript snippet (from 4. and 5.) wil look for the keypress Shift+Alt+E. If the user presses Shift+Alt+E, the CSS class will show an edit icon (2.) in front of every region (from 1.) on his frontend website page. 
-The user can now click on the edit link for this region and the Perch page 'edit region' will be opened. If the user is not logged in, the loginpage is shown first. 
+In every region you made editable (see install 6.) there now is a hidden link to the editpage of this region (via regionID and itemID, see code).
+The javascript snippet (4. and 5.) wil look for the keypress Shift-Alt-E. If the user presses Shift-Alt-E, the CSS class will show an edit icon (2.) beside regions (from 1.) on the frontend page. 
+The user can now click on the edit icon and the Perch page 'edit region' will be opened.   
+If the user is not logged in, the loginpage is shown first. 
 
 ### TODO   
-- Make a cleaner install
-- pen.png is a bit too big
+- Make a cleaner install, if you have suggestions, please let me know.
+- Test it with blocks. Its tested for regions (including a repeater)
+- pen.png is a bit too big in bytes
 
 
 ## Example use in your Perch template file
 ~~~
-<!-- This is a Perch Template which resides in /perch/templates/content/<mytemplate>.html -->
+<!-- Perch Content Template which resides in /perch/templates/content/<mytemplate>.html -->
 
 <h2>
 	<perch:content id="alineakop" type="text" label="Alinea Kop" required="true" title="true" />
@@ -90,15 +115,15 @@ The user can now click on the edit link for this region and the Perch page 'edit
 ~~~
 
 
-## Add this CSS to your frontend CSS file.  
-~~~
-<!-- This is a snippet CSS to be added to (for example): /css/style.css -->
+## Add this CSS to your frontend CSS file.
+This code is also in the file /css/style.css of this repository. 
 
+~~~
+<!-- This is a snippet CSS to be added to (for example): /css/frontend-style.css -->
 
 /* Styles for Region Editor */
 
 /* Editing this snippet you can alter the way the edit-icon is displayed on your front-end pages */ 
-/* It requires an edit image in /img/ */
 
 span.region_editor { 
   position: relative;
@@ -125,4 +150,4 @@ span.region_editor:hover {
 
 ### Screenshot of the appearing edit-icons 
 Shift-Alt-E toggles the edit buttons next to the region titles.
-![Screenshots Region Edit icons](/Screenshot_EditMode.png?raw=true "Shift-Alt-E shows the region edit buttons")
+![Screenshots Region Edit icons](/screenshot/Screenshot_EditMode.png?raw=true "Shift-Alt-E shows the region edit buttons")
