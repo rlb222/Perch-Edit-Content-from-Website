@@ -3,7 +3,7 @@
 This Solution for [Perch CMS](http://grabaperch.com) makes it possible for administrators to go to the editpage for a region directly from the frontpages of the website. 
 You go to the page you want to modify, you type Shift-Alt-E to show the editable parts on the page. Click one of the revealed edit-buttons to go directly to the region-edit page. 
 
-### The basis of this method
+## The basis of this method
 a.  
 It's possible to go directly to edit a region in Perch. The direct url to edit a region is   
 `www.mydomain.com/perch/core/apps/content/edit/?id=regionID&itm=itemID`
@@ -32,7 +32,7 @@ This region-edit solution makes it possible to directly edit the region content 
   
   
 
-### How to install
+## How to install
 0. Download the repository, it contains a Perch-like folder structure
 1. Include the CSS (from css/style.css) into your front-end CSS (for the showing and hiding of edit buttons)
 2. Add the edit-image to your front-end images (img/pen.png)   
@@ -65,7 +65,7 @@ You can change how the edit-button looks in two ways:
 - pen.png is a bit too big in bytes
 
 
-## Example use in your Perch template file
+### Example use in your Perch template file
 ~~~
 <!-- Perch Content Template which resides in /perch/templates/content/<mytemplate>.html -->
 
@@ -83,7 +83,7 @@ You can change how the edit-button looks in two ways:
 ~~~
 
 
-## Example use in your Perch Master template file
+### Example use in your Perch Master template file
 ~~~
 <!-- This is an exmaple of a Perch Master Template which resides in /perch/templates/pages/<myMasterTemplate>.php -->
 <!-- 
@@ -122,7 +122,7 @@ You can change how the edit-button looks in two ways:
 ~~~
 
 
-## Add this CSS to your frontend CSS file.
+### Add this CSS to your frontend CSS file.
 This code is also in the file /css/style.css of this repository. 
 
 ~~~
