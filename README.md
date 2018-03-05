@@ -5,18 +5,21 @@ You go to the page you want to modify, you type Shift-Alt-E to show the editable
 
 ## The basis of this method
 a.  
-It's possible to go directly to edit a region in Perch. The direct url to edit a region is   
+It's possible to directly edit a region in Perch with the url:   
 `www.mydomain.com/perch/core/apps/content/edit/?id=regionID&itm=itemID`
 
 b.  
 From within a template you have the regionID and the itemID with the commands:  
-`<perch:content id="regionID" type="hidden" />` and `<perch:content id="itemID" type="hidden" />`
+`<perch:content id="regionID" type="hidden" />`    
+and  
+`<perch:content id="itemID" type="hidden" />`  
   
   
 In the template for a region you can add an edit link or button, just like in the Perch Ctrl-E code:
 ~~~
 <span class="region_editor hide_this" 
-	  onclick="var cms_path='/perch/core/apps/content/edit/?id=<perch:content id="regionID" type="hidden" />&itm=<perch:content id="itemID" type="hidden" />';window.open(cms_path, 'cmsedit');">
+	  onclick="var cms_path='/perch/core/apps/content/edit/?id=<perch:content id="regionID" type="hidden" />  
+    &itm=<perch:content id="itemID" type="hidden" />';window.open(cms_path, 'cmsedit');">  
 </span>
 ~~~  
   
