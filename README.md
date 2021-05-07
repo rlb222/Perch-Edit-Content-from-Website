@@ -1,5 +1,5 @@
 # Perch Edit Content from the Website   
-Jump from the website frontend directly to the correct edit content page in [Perch CMS](http://grabaperch.com).
+Jump from the website frontend directly to the correct content edit page in [Perch CMS](http://grabaperch.com).
 
 ## What's it for  
 This addon makes it possible for a user to 1. go to a page on their website, 2. press an shortcut key to show the hidden edit button and 3. click the button to take them directly to the edit page in Perch. 
