@@ -6,7 +6,10 @@ This addon makes it possible for a user to 1. go to a page on their website, 2. 
   
 (Not tested for Runway.) 
   
-    
+
+![Screenshots Edit from Website icons](/screenshot/Screenshot_EditMode.png?s=150)
+
+
 ## Installation Quick overview
 1. Install the Perch filter and the Perch template layout from this repository
 2. Include 'regionedit.script.php' in every page you want to make editable 
@@ -18,8 +21,6 @@ This addon makes it possible for a user to 1. go to a page on their website, 2. 
 2. An edit button will appear next to every region that is made editable
 3. The user clicks the edit button, which will jump directly to the edit page of that particular region
 4. If the user is not logged in the login screen appears. After login the user will be shown edit page. 
-
-![Screenshots Edit from Website icons](/screenshot/Screenshot_EditMode.png | width=200)
   
   
 ## How to install -detailed
