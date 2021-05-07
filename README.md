@@ -19,7 +19,7 @@ This addon makes it possible for a user to 1. go to a page on their website, 2. 
 3. The user clicks the edit button, which will jump directly to the edit page of that particular region
 4. If the user is not logged in the login screen appears. After login the user will be shown edit page. 
 
-![Screenshots Edit from Website icons](/screenshot/Screenshot_EditMode.png "Shift-Alt-E shows the region edit buttons")
+![Screenshots Edit from Website icons](/screenshot/Screenshot_EditMode.png "Shift-Alt-E shows the region edit buttons" | width=200)
   
   
 ## How to install -detailed
