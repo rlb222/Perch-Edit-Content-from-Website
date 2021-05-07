@@ -1,10 +1,14 @@
-<!-- Example use of layouts/regionedit.template ->
+<!-- 
+	Example use of layouts/regionedit.template 
+	you only add: 
+	filter="insertedit"
+	to one field (e.g. the first field) in the region.
+-->
 
 <h2>
-	<perch:content id="alineakop" type="text" label="Alinea Kop" required="true" title="true" />
+	<perch:content filter="insertedit" id="alineakop" type="text" label="Alinea Kop" required="true" title="true" />
 </h2>
 
-<perch:template path="layouts/regionedit.template.php" />
 
 <perch:if exists="alineaimage">
 	<img class="foto" src="<perch:content id="alineaimage" type="image" label="Foto" />" 

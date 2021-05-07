@@ -18,10 +18,8 @@ perch_content_create('Pagina Titel', array(
 <html lang="en">
 <?php perch_layout('cdr.head'); ?>
 
-<?php perch_get_javascript(); ?>  
-
 <!-- This is the line you insert for RegionEdit -->
-<?php perch_layout('regionedit.script'); ?>
+<?php perch_layout('rlb_editfromwebsite.script'); ?>
 
 
 <body>

@@ -1,83 +1,70 @@
-# Perch Edit Regions from Frontend (RegionEdit)   
+# Perch Edit Content from the Website   
+Jump from the website frontend directly to the correct edit content page in [Perch CMS](http://grabaperch.com).
 
-This Solution for [Perch CMS](http://grabaperch.com) makes it possible for administrators to go to the editpage for a region directly from the frontpages of the website. 
-You go to the page you want to modify, you type Shift-Alt-E to show the editable parts on the page. Click one of the revealed edit-buttons to go directly to the region-edit page. 
+## What's it for  
+This addon makes it possible for a user to go to the actual website, press an shortcut key to show the hidden edit button. Clicking the button will bring them directly to the (region) edit page in [Perch CMS](http://grabaperch.com). 
+  
+It's not tested in Runway. 
+  
+    
+## Installation Quick overview
+1. Install the Perch filter and the Perch template layout from this repository
+2. Include 'regionedit.script.php' in every page you want to make editable 
+3. Inside your content template, choose a field to add the filter to. This will add the edit icon next to that field.
 
-## The basis of this method
-a.  
-It's possible to directly edit a region in Perch with the url:   
-`www.mydomain.com/perch/core/apps/content/edit/?id=regionID&itm=itemID`
 
-b.  
-From within a template you have the regionID and the itemID with the commands:  
-`<perch:content id="regionID" type="hidden" />`    
-and  
-`<perch:content id="itemID" type="hidden" />`  
+## Usage Quick overview
+1. Press Shift-Alt-E on the frontend of the webpage.
+2. An edit button will appear next to every region that is made editable
+3. The user clicks the edit button, which will jump directly to the edit page of that particular region
+4. If the user is not logged in the login screen appears. After login the user will be shown edit page. 
+
+![Screenshots Edit from Website icons](/screenshot/Screenshot_EditMode.png?raw=true "Shift-Alt-E shows the region edit buttons")
   
   
-In the template for a region you can add an edit link or button, just like in the Perch Ctrl-E code:
-~~~
-<span class="region_editor hide_this" 
-	  onclick="var cms_path='/perch/core/apps/content/edit/?id=<perch:content id="regionID" type="hidden" />  
-    &itm=<perch:content id="itemID" type="hidden" />';window.open(cms_path, 'cmsedit');">  
-</span>
-~~~  
-  
-c.
-You don't want to show these edit-buttons to your normal website-visitor. Only to an administrator or editor.
-So I've hidden them behind the key command Shift-Alt-E, the same way Ctrl-E works now.
-Shift-Alt-E will toggle these edit-buttons.
-
-
-### Current Ctrl-E in Perch
-With standard Perch CMS you can [add the functionality](https://docs.grabaperch.com/video/v/perch-editing-shortcuts/) to edit pages with Ctrl-E. You have to click to the right region-type and then to the correct region to edit it.  
-This region-edit solution makes it possible to directly edit the region content from the front-page.
-  
-  
-
-## How to install
+## How to install -detailed
 0. Download the repository, it contains a Perch-like folder structure
-1. Include the CSS (from css/style.css) into your front-end CSS (for the showing and hiding of edit buttons)
-2. Add the edit-image to your front-end images (img/pen.png)   
-3. Copy the template 'regionedit.template.php' to perch/templates/layouts/
-4. Copy the template 'regionedit.script.php' to perch/templates/layouts/
-5. Include a javascript snippet into every page you want to make editable (or in your referenced master pages) with 
-`<?php perch_layout('regionedit.script'); ?>`
-6. Insert an extra line into every template (=region) you want to make editable (in 'perch/templates/content') 
-`<perch:template path="layouts/regionedit.template.php" />`
+1. Install the filter
+1-1. In the Perch config file /perch/config/config.php add this line:  
+`    // Enable filters in Perch ` 
+`    define('PERCH_TEMPLATE_FILTERS', true);`
+1-2. Add this line to the file perch/addons/templates/filters.php :
+`    include('filters/rlb_editfromwebsite.class.php');`
+1-3. Add this file to the folder perch/addons/templates/filters/
+`    rlb_editfromwebsite.class.php`
+2. Copy the template `'rlb_editfromwebsite.script.php'` to folder: perch/templates/layouts/ and   
+add the edit-image to your front-end images (img/pen.png). To change the folder of pen.png see 5.   
+3. Include a javascript snippet into every (master)page you want to make editable: 
+`<?php perch_layout('rlb_editfromwebsite.script'); ?>`
+4. Add a filter 'insertedit' to a field within the Region you want to make editable. You can choose every field in the Region. Next to this field the edit icon will appear.
+~~~    
+  <!-- Example use of insertedit filter -->
+  <perch:content filter="insertedit" id="alineakop" type="text" label="Alinea Kop" required="true" title="true" order="1"/>
+~~~
+5. You can change the appearance of the edit pen in the CSS part of ``rlb_editfromwebsite.script.php``. You can also change the folder of the pen.png. And to reduce redundancy of CSS lines a bit you can move the CSS part into your frontend CSS. 
+  
+    
+### Change the placement of the Edit icon  
+You can change the look and placement of the edit-button in two ways:
+1. By selecting which field should have the button next to it. (how to install 4.)
+2. Edit the CSS to alter the place on screen or the appearance of the edit-icon (how to install 3.)
 
 
-### How it works
-A bit [like Ctrl-E in the docs](https://docs.grabaperch.com/video/v/perch-editing-shortcuts/), but here the keycombination shows edit-icons next to regions. Clicking these will open the region edit-page.
-
-In every region you made editable (see install 6.) there now is a hidden link to the editpage of this region (via regionID and itemID, see code).
-The javascript snippet (4. and 5.) wil look for the keypress Shift-Alt-E. If the user presses Shift-Alt-E, the CSS class will show an edit-button (2.) beside regions (from 1.) on the frontend page. 
-The user can now click on the edit icon and the Perch page 'edit region' will be opened.   
-If the user is not logged in, the loginpage is shown first. 
-
-
-### How it looks on the web pages
-You can change how the edit-button looks in two ways:
-1. Select the place in the region template where you put the edit-button link (see install 6.)
-2. Edit the CSS to change the place on screen or the appearance of the edit-button (As in install 1.)
-
-
-### Todo   
+## Todo   
 - Make a cleaner install, if you have suggestions, please let me know.
-- Test it with blocks. Its tested for regions (including a repeater)
-- pen.png is a bit too big in bytes
+- Test it with blocks. Its tested for regions (including a repeater). 
+- Test for Runway.
 
 
-### Example use in your Perch template file
+## Example use in your Perch template file 
+Ad 'how to install 4.'
 ~~~
 <!-- Perch Content Template which resides in /perch/templates/content/<mytemplate>.html -->
 
 <h2>
-	<perch:content id="alineakop" type="text" label="Alinea Kop" required="true" title="true" />
+  <!-- the filter 'insertedit' is added to the first field within the Region -->
+  <perch:content filter="insertedit" id="alineakop" type="text" label="Alinea Kop" required="true" title="true" />
 </h2>
-
-<!-- just below the region title field: title="true" is a nice spot to place this RegionEdit-icon code -->
-<perch:template path="layouts/region_editor.php" />
 
 <perch:if exists="alineaimage">
 	<img class="foto" src="<perch:content id="alineaimage" type="image" label="Foto" />" 
@@ -87,77 +74,64 @@ You can change how the edit-button looks in two ways:
 
 
 ### Example use in your Perch Master template file
+Ad 'how to install 3.'
 ~~~
-<!-- This is an exmaple of a Perch Master Template which resides in /perch/templates/pages/<myMasterTemplate>.php -->
+<!-- This is an example of a Perch Master Template which resides in /perch/templates/pages/<myMasterTemplate>.php -->
 <!-- 
     only the line 
-    <?php perch_layout('regionedit.script'); ?>
+    <?php perch_layout('rlb_editfromwebsite.script'); ?>
     is inserted into the Master Template
 -->
 
-<!-- You can also place this line in your *.php pages in the root, if you don't use Perch master pages -->
-
+<!-- 
+  You can also place this line in your *.php pages in the root, if you don't use Perch master pages 
+  Another good spot is to add this line into a layout file which contains the head section. That is my prefered way. So in this case the line could be put in the cdr.head.php layout
+-->
 
 <!doctype html>
 <html lang="en">
 <?php perch_layout('cdr.head'); ?>
 
-<!-- for Perch's Ctrl-E support -->
-<?php perch_get_javascript(); ?>  
 <!-- for RegionEdit Shift-Alt-E support -->
-<?php perch_layout('regionedit.script'); ?>
+<?php perch_layout('rlb_editfromwebsite.script'); ?>
 
 <!-- The rest is just left here as an example -->
 <body>
-	<header>
-	</header>
-	<nav>
-        <?php perch_pages_navigation(['levels'=>1]); ?>
-	</nav>
-
 	<section>
 		<?php perch_content('Pagina Titel'); ?>
 	</section>
-
 	<?php perch_layout('cdr.footer'); ?>
 </body>
 </html>
 ~~~
 
 
-### Add this CSS to your frontend CSS file.
-This code is also in the file /css/style.css of this repository. 
 
+## Technical Explanation 
+Steps whichs explain how it works, this will all be taken care of the installed code.
+
+a.  
+It's possible to directly edit a region in Perch with the url:   
+`www.mydomain.com/perch/core/apps/content/edit/?id=regionID&itm=itemID`
+
+b.  
+From within a template you can get the regionID and the itemID:  
+`<perch:content id="regionID" type="hidden" />`    
+and  
+`<perch:content id="itemID" type="hidden" />`  
+  
+
+c.  
+In the template for a region you can add an edit link or button, just like in the Perch Ctrl-E code:
 ~~~
-<!-- This is a snippet CSS to be added to (for example): /css/frontend-style.css -->
+<span class="rlb_editfromwebsite hide_this" 
+	  onclick="var cms_path='/perch/core/apps/content/edit/?id=<perch:content id="regionID" type="hidden" />  
+    &itm=<perch:content id="itemID" type="hidden" />';window.open(cms_path, 'cmsedit');">  
+</span>
+~~~  
+  
+d.
+You don't want to show these edit-buttons to your normal website-visitor. Only to an administrator or editor.
+So I've hidden them behind the key command Shift-Alt-E, the same way Ctrl-E works now.
+Shift-Alt-E will toggle these edit-buttons.
 
-/* Styles for Region Editor */
-
-/* Editing this snippet you can alter the way the edit-icon is displayed on your front-end pages */ 
-
-span.region_editor { 
-  position: relative;
-  top: -41px;
-  left: -39px;
-  margin-bottom: -30px;
-  background-image: url('../img/pen.png'); /* The edit image */
-  background-size: 30px 30px;
-  background-repeat: no-repeat;
-  height: 30px;
-  width: 30px;
-  display: block;
-}
-
-span.region_editor.hide_this {
-  display: none;
-}
-
-span.region_editor:hover {
-  cursor: pointer;
-}
-~~~
-
-
-### Screenshot of the appearing edit-icons 
-Shift-Alt-E toggles the edit buttons next to the region titles.
-![Screenshots Region Edit icons](/screenshot/Screenshot_EditMode.png?raw=true "Shift-Alt-E shows the region edit buttons")
