@@ -7,7 +7,7 @@ This addon makes it possible for a user to 1. go to a page on their website, 2. 
 (Not tested for Runway.) 
   
 
-![Screenshots Edit from Website icons](/screenshot/Screenshot_EditMode.png?s=150)
+![Screenshots Edit from Website icons](/screenshot/Screenshot_EditMode.png?s=100)
 
 
 ## Installation Quick overview
