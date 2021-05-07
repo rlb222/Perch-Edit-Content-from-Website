@@ -2,12 +2,14 @@
 Jump from the website frontend directly to the correct content edit page in [Perch CMS](http://grabaperch.com).
 
 ## What's it for  
-This addon makes it possible for a user to 1. go to a page on their website, 2. press an shortcut key to show the hidden edit button and 3. click the button to take them directly to the edit page in Perch. 
+This addon makes it possible for a user to do the following   
+1. go to a page on their website
+2. press a shortcut key to show the hidden edit button and 
+3. click the button to take them directly to the edit page in Perch. 
   
-(Not tested for Runway.) 
+(Not tested on Runway.) 
   
-
-![Screenshots Edit from Website icons](/screenshot/Screenshot_EditMode.png?s=100)
+<img src="/screenshot/Screenshot_EditMode.png" width="200">
 
 
 ## Installation Quick overview
@@ -25,14 +27,14 @@ This addon makes it possible for a user to 1. go to a page on their website, 2. 
   
 ## How to install -detailed
 0. Download the repository, it contains a Perch-like folder structure
-1. Install the filter
-1-1. In the Perch config file /perch/config/config.php add this line:  
+1. Install the filter    
+1-1. In the Perch config file /perch/config/config.php add this line:    
 `    // Enable filters in Perch ` 
-`    define('PERCH_TEMPLATE_FILTERS', true);`
-1-2. Add this line to the file perch/addons/templates/filters.php :
-`    include('filters/rlb_editfromwebsite.class.php');`
-1-3. Add this file to the folder perch/addons/templates/filters/
-`    rlb_editfromwebsite.class.php`
+`    define('PERCH_TEMPLATE_FILTERS', true);`  
+1-2. Add this line to the file perch/addons/templates/filters.php :   
+`    include('filters/rlb_editfromwebsite.class.php');`  
+1-3. Add this file to the folder perch/addons/templates/filters/   
+`    rlb_editfromwebsite.class.php`   
 2. Copy the template `'rlb_editfromwebsite.script.php'` to folder: perch/templates/layouts/ and   
 add the edit-image to your front-end images (img/pen.png). To change the folder of pen.png see 5.   
 3. Include a javascript snippet into every (master)page you want to make editable: 
@@ -74,7 +76,7 @@ Ad 'how to install 4.'
 ~~~
 
 
-### Example use in your Perch Master template file
+## Example use in your Perch Master template file
 Ad 'how to install 3.'
 ~~~
 <!-- This is an example of a Perch Master Template which resides in /perch/templates/pages/<myMasterTemplate>.php -->
