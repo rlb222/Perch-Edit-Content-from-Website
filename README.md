@@ -54,6 +54,7 @@ You can change the look and placement of the edit-button in two ways:
 
 
 ## Todo   
+- In some situations the regionID and itemID are not fetchable. I haven't found yet why this is, or how to change this. This causes the edit button not to work.
 - Make a cleaner install, if you have suggestions, please let me know.
 - Test it with blocks. Its tested for regions (including a repeater). 
 - Test for Runway.
